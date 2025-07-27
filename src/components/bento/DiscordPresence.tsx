@@ -5,7 +5,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { cn, getElapsedTime } from '@/lib/utils'
 import AvatarComponent from '@/components/ui/avatar'
 
-const DISCORD_USER_ID = '747519888347627550'
+const DISCORD_USER_ID = '1398948777716613122'
 
 interface Activity {
   type: number
@@ -107,9 +107,9 @@ const DecorativeBadges = memo(() => {
 
 const UserInfo = memo(() => (
   <div className="bg-border/50 flex flex-col gap-y-1 p-3">
-    <span className="text-base leading-none">enscribe</span>
+    <span className="text-base leading-none">frostfoe</span>
     <span className="text-muted-foreground text-xs leading-none">
-      @enscribe
+      @frostfoe
     </span>
   </div>
 ))
