@@ -87,14 +87,12 @@ For full license details and permission requests, please refer to the [LICENSE.m
  </picture>
 </a>
 
-
 ---
 
 Made with ♥ by [enscribe](https://enscribe.dev)!
 
 [cc-by-nc-nd]: http://creativecommons.org/licenses/by-nc-nd/4.0/
 [cc-by-nc-nd-shield]: https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg
-
 [CodeFactor]: https://img.shields.io/codefactor/grade/github/jktrn/enscribe.dev?color=2f2a24&logo=codefactor&logoColor=fff&style=for-the-badge
 [Stargazers]: https://img.shields.io/github/stars/jktrn/enscribe.dev?color=463f37&logo=github&logoColor=fff&style=for-the-badge
 [Code License]: https://img.shields.io/badge/code%20license-proprietary-5d5449?style=for-the-badge&logo=github&logoColor=fff
