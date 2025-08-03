@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import type { SocialLink } from '@/types'
 import type { CollectionEntry } from 'astro:content'
 import SocialIcons from './SocialIcons.astro'
+import AuthorName from './AuthorName.astro'
 
 interface Props {
   author: CollectionEntry<'authors'>
@@ -47,7 +48,7 @@ const socialLinks: SocialLink[] = [
     <div class="flex grow flex-col justify-between gap-y-4">
       <div>
         <div class="flex flex-wrap items-center gap-x-2">
-          <h3 class="text-lg font-medium">{name}</h3>
+          <AuthorName name={name} className="text-lg font-medium" />
           {
             pronouns && (
               <span class="text-muted-foreground text-sm">({pronouns})</span>

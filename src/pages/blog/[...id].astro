@@ -4,6 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import Link from '@/components/Link.astro'
 import PostHead from '@/components/PostHead.astro'
 import PostNavigation from '@/components/PostNavigation.astro'
+import AuthorName from '@/components/AuthorName.astro'
 import SubpostsHeader from '@/components/SubpostsHeader.astro'
 import SubpostsSidebar from '@/components/SubpostsSidebar.astro'
 import TOCHeader from '@/components/TOCHeader.astro'
@@ -150,10 +151,10 @@ const tocSections = await getTOCSections(currentPostId)
                         underline
                         class="text-foreground"
                       >
-                        <span>{author.name}</span>
+                        <AuthorName name={author.name} />
                       </Link>
                     ) : (
-                      <span>{author.name}</span>
+                      <AuthorName name={author.name} />
                     )}
                   </div>
                 ))}

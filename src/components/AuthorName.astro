@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+  name: string;
+  className?: string;
+}
+
+const { name, className = "" } = Astro.props;
+---
+
+<div class={`flex items-center gap-x-1 ${className}`}>
+  <span>{name}</span>
+  <span class="text-primary">
+    <Icon name="lucide:badge-check" class="size-4" />
+  </span>
+</div>
