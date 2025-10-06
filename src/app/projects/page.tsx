@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { allProjects } from "contentlayer/generated";
+import { getProjects } from "@/util/projects";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
@@ -11,6 +11,7 @@ const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
+  const allProjects = getProjects();
   const views = (
     await redis.mget<number[]>(
       ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),

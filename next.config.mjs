@@ -1,4 +1,4 @@
-import { withContentlayer } from "next-contentlayer";
+import nextMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,6 +6,15 @@ const nextConfig = {
 	experimental: {
 		mdxRs: true,
 	},
+	
 };
 
-export default withContentlayer(nextConfig);
+const withMDX = nextMDX({
+	extension: /\.mdx?$/,
+	options: {
+		remarkPlugins: [],
+		rehypePlugins: [],
+	},
+});
+
+export default withMDX(nextConfig);
