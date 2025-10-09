@@ -4,30 +4,10 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
 	content: [
 		"./src/app/**/*.{js,ts,jsx,tsx}",
-		"./src/mdx-components.tsx",
-		"src/content/**/*.mdx",
 	],
 
 	theme: {
 		extend: {
-			typography: {
-				DEFAULT: {
-					css: {
-						"code::before": {
-							content: '""',
-						},
-						"code::after": {
-							content: '""',
-						},
-					},
-				},
-				quoteless: {
-					css: {
-						"blockquote p:first-of-type::before": { content: "none" },
-						"blockquote p:first-of-type::after": { content: "none" },
-					},
-				},
-			},
 			fontFamily: {
 				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
 				display: ["var(--font-calsans)"],
@@ -105,7 +85,6 @@ module.exports = {
 		},
 	},
 	plugins: [
-		require("@tailwindcss/typography"),
 		require("tailwindcss-debug-screens"),
 	],
 };

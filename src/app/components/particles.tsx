@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
-import { useMousePosition } from "@/util/mouse";
+import React, { useRef, useEffect } from "react";
 
 interface ParticlesProps {
 	className?: string;
@@ -22,7 +21,6 @@ export default function Particles({
 	const canvasContainerRef = useRef<HTMLDivElement>(null);
 	const context = useRef<CanvasRenderingContext2D | null>(null);
 	const circles = useRef<any[]>([]);
-	const mousePosition = useMousePosition();
 	const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 	const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
 	const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
@@ -41,8 +39,24 @@ export default function Particles({
 	}, []);
 
 	useEffect(() => {
-		onMouseMove();
-	}, [mousePosition.x, mousePosition.y]);
+		const onMouseMove = (e: MouseEvent) => {
+			if (canvasRef.current) {
+				const rect = canvasRef.current.getBoundingClientRect();
+				const { w, h } = canvasSize.current;
+				const x = e.clientX - rect.left - w / 2;
+				const y = e.clientY - rect.top - h / 2;
+				const inside = x < w / 2 && x > -w / 2 && y < h / 2 && y > -h / 2;
+				if (inside) {
+					mouse.current.x = x;
+					mouse.current.y = y;
+				}
+			}
+		};
+		window.addEventListener("mousemove", onMouseMove);
+		return () => {
+			window.removeEventListener("mousemove", onMouseMove);
+		};
+	}, []);
 
 	useEffect(() => {
 		initCanvas();
@@ -51,20 +65,6 @@ export default function Particles({
 	const initCanvas = () => {
 		resizeCanvas();
 		drawParticles();
-	};
-
-	const onMouseMove = () => {
-		if (canvasRef.current) {
-			const rect = canvasRef.current.getBoundingClientRect();
-			const { w, h } = canvasSize.current;
-			const x = mousePosition.x - rect.left - w / 2;
-			const y = mousePosition.y - rect.top - h / 2;
-			const inside = x < w / 2 && x > -w / 2 && y < h / 2 && y > -h / 2;
-			if (inside) {
-				mouse.current.x = x;
-				mouse.current.y = y;
-			}
-		}
 	};
 
 	type Circle = {
