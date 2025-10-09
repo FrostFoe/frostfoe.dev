@@ -1,24 +1,25 @@
 import "./global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
+import { Inter } from "next/font/google";
+import LocalFont from "next/font/local";
 import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
+
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://frostfoe.dev"),
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "frostfoe.dev",
+    template: "%s | frostfoe.dev",
   },
   description: "Co-founder of unkey.dev and founder of planetfall.io",
   openGraph: {
-    title: "chronark.com",
+    title: "frostfoe.dev",
     description:
       "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+    url: "https://frostfoe.dev",
+    siteName: "frostfoe.dev",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://frostfoe.dev/og.png",
         width: 1920,
         height: 1080,
       },
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Frostfoe",
     card: "summary_large_image",
   },
   icons: {
@@ -63,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
-        <Analytics />
+        
       </head>
       <body
         className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
